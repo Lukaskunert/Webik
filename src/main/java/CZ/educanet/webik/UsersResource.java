@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
     private boolean UserS(Users UserS) {
         for(int i = 0; i < names.size();i++){
-            if() {
+            if(names.get(i).getUsername().equals(user.getUsername())) {
                 return true;
             }
         }
