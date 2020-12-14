@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-    @Path("users")
-    @Produces(MediaType.APPLICATION_JSON)
-    public class UsersResource {
+@Path("users")
+@Produces(MediaType.APPLICATION_JSON)
+public class UsersResource {
 
     private static List<Users> names = new ArrayList<Users>();
 
@@ -26,7 +26,7 @@ import java.util.ArrayList;
         return false;
     }
 
-        @PUT
+    @PUT
     @Path(("/{{username}}"))
     public Object editUsers(Users user, String username, String newUsername) {
 
@@ -48,6 +48,9 @@ import java.util.ArrayList;
             return Response.status(Response.Status.valueOf("...")).build(); } else {
             names.add(tempUser);
             return Response.ok("...").build(); }
+    } @GET
+    public Response getLoggedUser() {
+        return Response.ok(manager.user).build();
     }@DELETE
     public Response deleteUsers(Users user){
         if(BoolUser(user)) {
@@ -55,5 +58,5 @@ import java.util.ArrayList;
             return Response.ok("...").build();
         } else {
             return Response.status(Response.Status.valueOf("..")).build(); } }
-    }
+}
 
